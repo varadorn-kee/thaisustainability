@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทะยานสู่อนาคต... ด้วยความยั่งยืน | Thai Airways</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'thai-purple': '#330066', /* Pantone 269 C */
+                        'thai-magenta': '#CC0099', /* Pantone 233 C */
+                        'thai-yellow': '#FFCE00', /* Pantone 7406 C */
+                        'thai-gold': '#B5915F', /* Pantone 8643 C Metallic */
+                        'thai-light': '#F8F5FB'
+                    },
+                    fontFamily: {
+                        prompt: ['Prompt', 'sans-serif'],
+                        sarabun: ['Sarabun', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Animations -->
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-prompt { font-family: 'Prompt', sans-serif; }
+        
+        /* Fade-in Animation Classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            visibility: hidden;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+
+        /* Hero Gradient Overlay */
+        .hero-gradient {
+            background: linear-gradient(90deg, rgba(65,19,100,0.95) 0%, rgba(65,19,100,0.7) 50%, rgba(65,19,100,0.1) 100%);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-gradient {
+                background: linear-gradient(180deg, rgba(51,0,102,0.6) 0%, rgba(51,0,102,0.95) 80%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-thai-light text-gray-800 overflow-x-hidden">
+
+    <!-- Navigation Header -->
+    <header class="absolute w-full z-50">
+        <!-- Top bar (Language & Login) -->
+        <div class="bg-thai-purple text-white text-xs py-2 px-6 lg:px-12 flex justify-end items-center gap-6 border-b border-white/10">
+            <a href="#" class="hover:text-thai-yellow font-prompt tracking-wide transition-colors">Sign In / Join Now</a>
+            <span class="w-px h-3 bg-gray-400"></span>
+            
+            <!-- Language Switcher -->
+            <div class="flex items-center gap-2 cursor-pointer group relative">
+                <img src="https://flagcdn.com/w20/th.png" alt="Thai Flag" class="w-4 h-3 shadow-sm rounded-sm">
+                <span class="font-prompt tracking-wide">TH</span>
+                <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                
+                <!-- Dropdown -->
+                <div class="absolute top-full right-0 mt-2 bg-white text-gray-800 shadow-xl rounded-md hidden group-hover:block min-w-[140px] overflow-hidden border border-gray-100">
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-thai-light hover:text-thai-purple transition-colors font-prompt text-sm">
+                        <img src="https://flagcdn.com/w20/th.png" alt="Thai" class="w-5 h-3.5 shadow-sm rounded-sm"> ภาษาไทย
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-thai-light hover:text-thai-purple transition-colors font-prompt text-sm border-t border-gray-50">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="w-5 h-3.5 shadow-sm rounded-sm"> English
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Navigation Bar -->
+        <nav class="px-6 py-4 lg:px-12 flex justify-between items-center bg-gradient-to-b from-black/70 to-transparent">
+            <div class="flex items-center gap-3">
+                <!-- THAI Airways Logo (CI based) -->
+                <a href="#" class="flex items-center">
+                    <img src="images/logo.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Thai_Airways_Logo.svg/500px-Thai_Airways_Logo.svg.png';" alt="THAI Smooth as silk Logo" class="h-10 lg:h-12 w-auto rounded-sm shadow-sm">
+                </a>
+            </div>
+            
+            <!-- Menu Links -->
+            <div class="hidden md:flex gap-6 lg:gap-8 font-prompt text-sm text-white font-medium tracking-wider">
+                <a href="#" class="hover:text-thai-yellow transition-colors py-1">PLAN</a>
+                <a href="#" class="hover:text-thai-yellow transition-colors py-1">BOOK</a>
+                <a href="#" class="hover:text-thai-yellow transition-colors py-1">MANAGE</a>
+                <a href="#" class="hover:text-thai-yellow transition-colors py-1">EXPERIENCE</a>
+                <a href="#" class="text-thai-yellow border-b-2 border-thai-yellow py-1">SUSTAINABILITY</a>
+                <a href="#" class="hover:text-thai-yellow transition-colors py-1">ROYAL ORCHID PLUS</a>
+            </div>
+            
+            <div class="md:hidden text-white">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-screen min-h-[600px] flex items-center">
+        <!-- Background Image -->
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=2000" alt="Airplane flying above clouds" class="absolute inset-0 w-full h-full object-cover z-0">
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 hero-gradient z-10"></div>
+        
+        <div class="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-20">
+            <div class="max-w-2xl text-white fade-in-section is-visible">
+                <span class="inline-block py-1 px-3 border border-thai-gold text-thai-gold text-xs font-prompt tracking-widest rounded-full mb-6 uppercase">Net Zero 2050</span>
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-semibold leading-tight mb-6 font-prompt">
+                    ทะยานสู่อนาคต...<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-thai-gold to-yellow-200">ด้วยความยั่งยืน</span>
+                </h1>
+                <p class="text-lg md:text-xl font-light leading-relaxed mb-10 text-gray-200 opacity-90">
+                    เพราะทุกเที่ยวบินคือคำมั่นสัญญา เรามุ่งมั่นยกระดับการเดินทาง ควบคู่ไปกับการดูแลโลก เพื่อเป้าหมายการปล่อยก๊าซเรือนกระจกสุทธิเป็นศูนย์ (Net Zero) ภายในปี 2050
+                </p>
+                <a href="#explore" class="inline-flex items-center justify-center px-8 py-4 bg-thai-magenta text-white font-prompt rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                    ร่วมเดินทางไปกับเรา <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Solar & Ground Ops (Asymmetrical Layout) -->
+    <section id="explore" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row items-center gap-16 fade-in-section">
+            <div class="w-full lg:w-7/12 relative">
+                <div class="aspect-w-16 aspect-h-12 lg:aspect-h-10 rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=1200" alt="Solar Rooftop" class="w-full h-full object-cover">
+                </div>
+                <!-- Decorative element -->
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-thai-purple rounded-full mix-blend-multiply opacity-20 filter blur-xl"></div>
+            </div>
+            
+            <div class="w-full lg:w-5/12">
+                <div class="flex items-center gap-4 mb-4 text-thai-gold">
+                    <i class="fa-solid fa-solar-panel text-2xl"></i>
+                    <span class="font-prompt font-medium uppercase tracking-widest text-sm">Ground Operations</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-semibold text-thai-purple mb-6 font-prompt">
+                    นวัตกรรมสีเขียว<br>เริ่มต้นตั้งแต่บนพื้นดิน
+                </h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    เราเปลี่ยนทุกขั้นตอนปฏิบัติการให้เป็นมิตรต่อสิ่งแวดล้อมอย่างเป็นรูปธรรม ด้วยการติดตั้งระบบผลิตไฟฟ้าพลังงานแสงอาทิตย์ (Solar Rooftop) ในศูนย์ซ่อมบำรุง และเดินหน้าเปลี่ยนผ่านกลุ่มยานพาหนะภาคพื้นดินไปสู่ระบบไฟฟ้า (EV) เพื่อลดคาร์บอนตั้งแต่ก่อนที่เครื่องบินจะทะยานขึ้นฟ้า
+                </p>
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    <div class="border-l-4 border-thai-magenta pl-4">
+                        <p class="text-3xl font-prompt font-bold text-thai-purple">20<span class="text-thai-magenta text-xl">%</span></p>
+                        <p class="text-xs text-gray-500 mt-1 uppercase font-prompt tracking-wide">ลดการปล่อย CO2 ภาคพื้น</p>
+                    </div>
+                    <div class="border-l-4 border-thai-gold pl-4">
+                        <p class="text-3xl font-prompt font-bold text-thai-purple">100<span class="text-thai-gold text-xl">%</span></p>
+                        <p class="text-xs text-gray-500 mt-1 uppercase font-prompt tracking-wide">ตั้งเป้าเปลี่ยนรถลากเป็น EV</p>
+                    </div>
+                </div>
+                <a href="#" class="text-thai-magenta font-prompt font-medium hover:text-thai-purple transition-colors inline-flex items-center group">
+                    ดูความก้าวหน้าด้านพลังงาน 
+                    <i class="fa-solid fa-chevron-right ml-2 text-xs group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Food Waste (Reverse Asymmetrical) -->
+    <section class="py-24 bg-white">
+        <div class="px-6 lg:px-12 max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-16 fade-in-section">
+                
+                <div class="w-full lg:w-6/12 relative">
+                    <!-- Upcycling Interactive Slider -->
+                    <div class="rounded-2xl overflow-hidden shadow-2xl relative group" id="upcycle-slider">
+                        <!-- Slider Track -->
+                        <div class="flex transition-transform duration-500 ease-in-out h-[400px] sm:h-[500px]" id="slider-track">
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=1200" alt="Chef preparing premium meal" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10028078_LittleB777.jpg" alt="Upcycled Aircraft Skin Tag" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10029364_tote_01.jpg" alt="Upcycled Tote Bag" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10029366_cross_red_b_02.jpg" alt="Upcycled Red Crossbody Bag" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10029366_cross_yela_01.jpg" alt="Upcycled Yellow Crossbody Bag" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10029367_phone_a02.jpg" alt="Upcycled Phone Bag" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10029368_clutch_01.jpg" alt="Upcycled Clutch Bag" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10030469_ZWL_tag_03.jpg" alt="Upcycled Life Vest Tags" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10030554_laptop_02.jpg" alt="Upcycled Laptop Sleeve" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10030558_utility_bag_4.jpg" alt="Upcycled Utility Bags" class="w-full h-full object-cover">
+                            </div>
+                            <div class="min-w-full h-full relative shrink-0">
+                                <img src="images/10030951_coin_bag.jpg" alt="Upcycled Coin Bag" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- Gradient & Text Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6 pointer-events-none">
+                            <div class="pointer-events-auto w-full">
+                                <p class="text-white font-prompt italic text-lg mb-1 drop-shadow-md">"Sustainable Cabin Excellence"</p>
+                                <p class="text-gray-200 text-sm font-prompt font-light drop-shadow-md">บริการอาหาร Pre-order และผลิตภัณฑ์ Upcycling ลดขยะอย่างยั่งยืน</p>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <div class="absolute bottom-6 right-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button id="slider-prev" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 text-white backdrop-blur-md flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-chevron-left text-sm"></i>
+                            </button>
+                            <button id="slider-play-pause" class="w-10 h-10 rounded-full bg-thai-magenta text-white flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-colors">
+                                <i class="fa-solid fa-pause"></i>
+                            </button>
+                            <button id="slider-next" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 text-white backdrop-blur-md flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
+                        </div>
+
+                        <!-- Indicators -->
+                        <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5" id="slider-indicators">
+                            <!-- Dots generated via JS -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-6/12 lg:pr-12">
+                    <div class="flex items-center gap-4 mb-4 text-thai-magenta">
+                        <i class="fa-solid fa-utensils text-2xl"></i>
+                        <span class="font-prompt font-medium uppercase tracking-widest text-sm">Cabin Excellence</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-semibold text-thai-purple mb-6 font-prompt">
+                        รสชาติเหนือระดับ<br>ที่มาพร้อมความรับผิดชอบ
+                    </h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        สุนทรียภาพแห่งการเดินทางที่ให้คุณมีส่วนร่วมในการรักษ์โลก นวัตกรรมบริการ "สั่งอาหารล่วงหน้า (Pre-order Meals)" ของเรา ช่วยบริหารจัดการวัตถุดิบได้อย่างแม่นยำ ลดปัญหาขยะอาหาร (Food Waste) อย่างยั่งยืน พร้อมต่อยอดวัสดุเหลือใช้บนเที่ยวบินสู่งานคราฟต์อัปไซเคิลระดับพรีเมียม
+                    </p>
+                    <ul class="space-y-4 mb-10 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-thai-gold mt-1"></i>
+                            <span>ลดเศษอาหารตกค้างด้วยระบบ Pre-order สดใหม่จากครัว</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-thai-gold mt-1"></i>
+                            <span>ใช้บรรจุภัณฑ์ที่ย่อยสลายได้ทางชีวภาพ 100%</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-thai-gold mt-1"></i>
+                            <span>โครงการ Upcycling พลิกโฉมวัสดุเหลือใช้เป็นของที่ระลึก</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block px-8 py-3 border-2 border-thai-purple text-thai-purple font-prompt rounded-full hover:bg-thai-purple hover:text-white transition-colors">
+                        สั่งอาหารล่วงหน้าสำหรับเที่ยวบินของคุณ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2.5: ROP Carbon Offset (New Idea) -->
+    <section class="relative py-24 bg-thai-purple overflow-hidden fade-in-section">
+        <!-- Background Image & Overlay -->
+        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&q=80&w=2000" alt="Lush Green Forest" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity">
+        <div class="absolute inset-0 bg-gradient-to-r from-thai-purple via-thai-purple/90 to-transparent"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2 text-white">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-plane-departure text-thai-gold text-xl"></i>
+                        <span class="font-prompt font-medium uppercase tracking-widest text-sm text-thai-gold">Royal Orchid Plus</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 font-prompt leading-tight">
+                        เปลี่ยนไมล์สะสม...<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-thai-yellow to-yellow-200">เป็นพลังแห่งความยั่งยืน</span>
+                    </h2>
+                    <p class="text-gray-300 mb-8 leading-relaxed font-light text-lg">
+                        ร่วมเป็นส่วนหนึ่งในการปกป้องโลกกับโครงการ <span class="font-medium text-white">Voluntary Carbon Offset</span> เพียงใช้ไมล์สะสม Royal Orchid Plus แลกซื้อคาร์บอนเครดิตเพื่อสนับสนุนโครงการพลังงานสะอาด 
+                        <br><br>
+                        พร้อมรับ <span class="text-thai-yellow font-medium">E-Voucher ส่วนลดพิเศษ</span> สำหรับการจองเที่ยวบินของการบินไทยในครั้งต่อไป
+                    </p>
+
+                    <!-- Steps -->
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+                                <i class="fa-solid fa-coins text-thai-gold text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-prompt text-white font-medium">1. ใช้ไมล์สะสม ROP</h4>
+                                <p class="text-sm text-gray-400 font-light">เริ่มต้นเพียง 2,500 ไมล์ เพื่อแลกคาร์บอนเครดิต</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+                                <i class="fa-solid fa-leaf text-thai-gold text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-prompt text-white font-medium">2. สนับสนุนสิ่งแวดล้อม</h4>
+                                <p class="text-sm text-gray-400 font-light">ชดเชยการปล่อย CO2 ให้กับเที่ยวบินของคุณ</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+                                <i class="fa-solid fa-ticket text-thai-gold text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-prompt text-white font-medium">3. รับ E-Voucher ทันที</h4>
+                                <p class="text-sm text-gray-400 font-light">รับรหัสส่วนลด 500 - 2,000 บาท เข้าอีเมลของคุณ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glassmorphism Interactive Card -->
+                <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                    <div class="w-full max-w-sm bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden group hover:bg-white/15 transition-all duration-500">
+                        <!-- Decorative glow -->
+                        <div class="absolute -top-20 -right-20 w-40 h-40 bg-thai-magenta rounded-full filter blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex justify-between items-start mb-8">
+                                <div>
+                                    <p class="text-xs text-gray-300 font-prompt tracking-wide uppercase mb-1">Your Balance</p>
+                                    <p class="text-3xl font-prompt font-semibold text-white">45,200 <span class="text-sm font-normal text-gray-300">Miles</span></p>
+                                </div>
+                                <img src="images/logo.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Thai_Airways_Logo.svg/500px-Thai_Airways_Logo.svg.png';" alt="THAI Logo" class="w-25 rounded-sm opacity-200">
+                            </div>
+
+                            <div class="bg-black/20 rounded-2xl p-5 border border-white/10 mb-6">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="font-prompt text-sm text-white">Carbon Offset Pkg.</span>
+                                    <span class="text-thai-magenta font-semibold">- 5,000 Miles</span>
+                                </div>
+                                <div class="w-full h-px bg-white/10 my-3"></div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-prompt text-sm text-thai-yellow"><i class="fa-solid fa-gift mr-2"></i>Reward</span>
+                                    <span class="text-thai-yellow font-bold text-lg">฿ 1,000 Voucher</span>
+                                </div>
+                            </div>
+
+                            <button class="w-full py-4 bg-gradient-to-r from-thai-gold to-yellow-500 text-thai-purple font-prompt font-semibold rounded-xl hover:shadow-[0_0_20px_rgba(255,206,0,0.4)] transition-all transform hover:-translate-y-1">
+                                Redeem Miles Now
+                            </button>
+                            <p class="text-center text-xs text-gray-400 mt-4 font-light">*เงื่อนไขเป็นไปตามที่บริษัทฯ กำหนด</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Data & Net Zero Roadmap -->
+    <section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto fade-in-section">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-4xl font-semibold text-thai-purple mb-6 font-prompt">คำมั่นสัญญา... ที่วัดผลได้จริง</h2>
+            <p class="text-gray-600 leading-relaxed">
+                ความโปร่งใสคือหัวใจสำคัญของการเปลี่ยนแปลงที่ยั่งยืน เราดำเนินการและรายงานผลตามมาตรฐานสากล พร้อมเร่งผลักดันการใช้เชื้อเพลิงอากาศยานแบบยั่งยืน (SAF) เพื่อให้คุณมั่นใจในทุกไมล์ที่เดินทางร่วมกับเรา
+            </p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-thai-yellow hover:-translate-y-2 transition-transform duration-300">
+                <i class="fa-solid fa-leaf text-3xl text-thai-yellow mb-4"></i>
+                <h3 class="font-prompt text-xl text-thai-purple font-semibold mb-2">Net Zero 2050</h3>
+                <p class="text-sm text-gray-500 mb-6">เป้าหมายสุทธิเป็นศูนย์ตามหลักสากล</p>
+                
+                <div class="w-full bg-gray-100 rounded-full h-2 mb-2">
+                    <div class="bg-thai-yellow h-2 rounded-full" style="width: 45%"></div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400 font-prompt">
+                    <span>2024 (Phase 1)</span>
+                    <span>2050</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-thai-magenta hover:-translate-y-2 transition-transform duration-300">
+                <i class="fa-solid fa-droplet text-3xl text-thai-magenta mb-4"></i>
+                <h3 class="font-prompt text-xl text-thai-purple font-semibold mb-2">SAF Integration</h3>
+                <p class="text-sm text-gray-500 mb-6">ขับเคลื่อนด้วยเชื้อเพลิงการบินชีวภาพ</p>
+                
+                <div class="w-full bg-gray-100 rounded-full h-2 mb-2">
+                    <div class="bg-thai-magenta h-2 rounded-full" style="width: 25%"></div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400 font-prompt">
+                    <span>ทดสอบการบิน</span>
+                    <span>เป้าหมาย 5% ในปี 2030</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-thai-purple hover:-translate-y-2 transition-transform duration-300">
+                <i class="fa-solid fa-chart-line text-3xl text-thai-purple mb-4"></i>
+                <h3 class="font-prompt text-xl text-thai-purple font-semibold mb-2">Transparency</h3>
+                <p class="text-sm text-gray-500 mb-6">ตรวจสอบสถิติ GHG Scope 1-3</p>
+                
+                <a href="#" class="inline-flex items-center text-sm font-prompt text-thai-magenta font-semibold hover:text-thai-purple transition-colors">
+                    ดาวน์โหลดรายงานฉบับสมบูรณ์ <i class="fa-solid fa-download ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-thai-purple text-white pt-16 pb-8 mt-12 border-t-4 border-thai-magenta">
+        <!-- Main Footer Content -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            
+            <!-- Column 1: About -->
+            <div>
+                <h4 class="font-prompt text-thai-yellow text-lg font-medium mb-6">About THAI</h4>
+                <ul class="space-y-3 text-sm font-light text-gray-300 font-prompt">
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Company Profile</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Investor Relations</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Business Units & Affiliates</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Careers</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Procurement & Standard Price</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 2: Other Services -->
+            <div>
+                <h4 class="font-prompt text-thai-yellow text-lg font-medium mb-6">Other Services</h4>
+                <ul class="space-y-3 text-sm font-light text-gray-300 font-prompt">
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">THAI Cargo</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">THAI Mail</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">THAI Shop</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Flight Simulator</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Charter Flights</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3: Terms -->
+            <div>
+                <h4 class="font-prompt text-thai-yellow text-lg font-medium mb-6">Terms & Conditions</h4>
+                <ul class="space-y-3 text-sm font-light text-gray-300 font-prompt">
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Privacy Notice</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Conditions of Contract</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Conditions of Carriage</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Baggage Policy</a></li>
+                    <li><a href="#" class="hover:text-thai-gold transition-colors block">Agency Debit Memo Policy</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 4: Connect & Alliance -->
+            <div>
+                <h4 class="font-prompt text-thai-yellow text-lg font-medium mb-6">Connect with THAI</h4>
+                <div class="flex gap-3 mb-8">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-thai-magenta transition-all hover:scale-110">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-thai-magenta transition-all hover:scale-110">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-thai-magenta transition-all hover:scale-110">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-thai-magenta transition-all hover:scale-110">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-thai-magenta transition-all hover:scale-110">
+                        <i class="fa-brands fa-line"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white/5 p-4 rounded-xl inline-block border border-white/10">
+                    <p class="text-xs font-prompt text-gray-400 mb-2 uppercase tracking-wide">A Star Alliance Member</p>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-star text-white text-2xl"></i>
+                        <span class="font-semibold tracking-[0.2em] text-sm leading-tight">STAR<br>ALLIANCE</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Bottom Copyright Area -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center">
+                <img src="images/logo.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Thai_Airways_Logo.svg/500px-Thai_Airways_Logo.svg.png';" alt="THAI Smooth as silk Logo" class="h-8 lg:h-10 w-auto rounded-sm shadow-sm">
+            </div>
+            <div class="text-xs font-light text-gray-400 font-prompt text-center md:text-right">
+                Copyright &copy; 2026 Thai Airways International Public Company Limited (All rights reserved).
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Scroll Animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('.fade-in-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // --- Slider Logic ---
+            const track = document.getElementById('slider-track');
+            if(track) {
+                const slides = track.children;
+                const prevBtn = document.getElementById('slider-prev');
+                const nextBtn = document.getElementById('slider-next');
+                const playPauseBtn = document.getElementById('slider-play-pause');
+                const indicatorsContainer = document.getElementById('slider-indicators');
+                
+                let currentIndex = 0;
+                let isPlaying = true;
+                let slideInterval;
+
+                // Create indicators
+                for(let i=0; i<slides.length; i++) {
+                    let dot = document.createElement('div');
+                    dot.className = `h-1.5 rounded-full cursor-pointer transition-all duration-300 shadow-sm ${i === 0 ? 'bg-thai-magenta w-6' : 'bg-white/60 hover:bg-white w-1.5'}`;
+                    dot.addEventListener('click', () => goToSlide(i));
+                    indicatorsContainer.appendChild(dot);
+                }
+                const indicators = indicatorsContainer.children;
+
+                function updateSlider() {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    for(let i=0; i<indicators.length; i++) {
+                        if(i === currentIndex) {
+                            indicators[i].className = 'h-1.5 rounded-full cursor-pointer transition-all duration-300 shadow-sm bg-thai-magenta w-6';
+                        } else {
+                            indicators[i].className = 'h-1.5 rounded-full cursor-pointer transition-all duration-300 shadow-sm bg-white/60 hover:bg-white w-1.5';
+                        }
+                    }
+                }
+
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlider();
+                }
+
+                function prevSlide() {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateSlider();
+                }
+
+                function goToSlide(index) {
+                    currentIndex = index;
+                    updateSlider();
+                    resetInterval();
+                }
+
+                function togglePlay() {
+                    isPlaying = !isPlaying;
+                    if (isPlaying) {
+                        playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                        startInterval();
+                    } else {
+                        playPauseBtn.innerHTML = '<i class="fa-solid fa-play ml-0.5"></i>';
+                        stopInterval();
+                    }
+                }
+
+                function startInterval() {
+                    slideInterval = setInterval(nextSlide, 3500); // 3.5 seconds per slide
+                }
+
+                function stopInterval() {
+                    clearInterval(slideInterval);
+                }
+
+                function resetInterval() {
+                    if (isPlaying) {
+                        stopInterval();
+                        startInterval();
+                    }
+                }
+
+                nextBtn.addEventListener('click', () => { nextSlide(); resetInterval(); });
+                prevBtn.addEventListener('click', () => { prevSlide(); resetInterval(); });
+                playPauseBtn.addEventListener('click', togglePlay);
+
+                // Start autoplay
+                startInterval();
+            }
+        });
+    </script>
+</body>
+</html>
